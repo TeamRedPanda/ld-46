@@ -14,6 +14,7 @@ public class AimSystem : MonoBehaviour
     {
         // Determine which direction to rotate towards
         Vector3 targetDirection = m_Target.position - transform.position;
+        targetDirection.y = 0f;
 
         // The step size is equal to speed times frame time.
         float singleStep = m_AngularSpeed * Time.deltaTime;
