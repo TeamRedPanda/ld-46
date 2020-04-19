@@ -21,7 +21,13 @@ public class PlayerAttack : MonoBehaviour
         Collider[] objectsHit = Physics.OverlapBox(center, extents, orientation);
 
         foreach (var objectHit in objectsHit) {
-            Debug.Log($"Hit {objectHit.name}");
+            var bullet = objectHit.GetComponent<Bullet>();
+            if (bullet == null) continue;
+
+            var normal = bullet.transform.position - transform.position;
+            normal.y = 0f;
+
+            bullet.Reflect(normal);
         }
     }
 
