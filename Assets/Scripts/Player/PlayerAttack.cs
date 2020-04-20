@@ -22,13 +22,17 @@ public class PlayerAttack : MonoBehaviour
 
         foreach (var objectHit in objectsHit) {
             var bullet = objectHit.GetComponent<Bullet>();
-            if (bullet == null) continue;
-
-            var normal = bullet.transform.position - transform.position;
-            normal.y = 0f;
-
-            bullet.Reflect(normal);
+            if (bullet != null)
+                ReflectBullet(bullet);
         }
+    }
+
+    private void ReflectBullet(Bullet bullet)
+    {
+        var normal = bullet.transform.position - transform.position;
+        normal.y = 0f;
+
+        bullet.Reflect(normal);
     }
 
     public void BackswingFinished()

@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     public void Reflect(Vector3 normal)
     {
         var currentDirection = transform.forward;
-        var newDirection = 2 * Vector3.Dot(normal, -currentDirection) * normal - currentDirection;
+        var newDirection = currentDirection - 2 * Vector3.Dot(normal, currentDirection) * normal;
 
         transform.rotation = Quaternion.LookRotation(newDirection, Vector3.up);
         m_Movement.Speed *= 1.4f;
