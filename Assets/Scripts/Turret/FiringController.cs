@@ -12,6 +12,9 @@ public class FiringController : MonoBehaviour
     [SerializeField] float m_FirePeriod;
     float m_TimeSinceLastShot;
 
+    [SerializeField] AudioSource m_AudioSource;
+    [SerializeField] AudioClip m_FireSound;
+
     bool m_ShouldFire = true;
 
     // Start is called before the first frame update
@@ -41,5 +44,6 @@ public class FiringController : MonoBehaviour
 
         m_TimeSinceLastShot = 0f;
         Instantiate(m_BulletPrefab, m_SpawnPoint.position, m_SpawnPoint.rotation);
+        m_AudioSource.PlayOneShot(m_FireSound);
     }
 }
