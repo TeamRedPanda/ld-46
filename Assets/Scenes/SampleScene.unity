@@ -1196,6 +1196,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 808741569, guid: 6969d67d5ffea6c41b16c7615d692445, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2968841233465520213, guid: 6969d67d5ffea6c41b16c7615d692445,
         type: 3}
       propertyPath: m_StrikeCountView

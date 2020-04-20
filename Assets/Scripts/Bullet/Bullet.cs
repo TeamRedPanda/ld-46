@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    DamageSource m_BulletType = DamageSource.NeutralBullet;
+    public DamageSource m_BulletType = DamageSource.NeutralBullet;
     int m_Bounces = 3;
+
+    [SerializeField] TrailRenderer m_Trail;
+
+    void Update()
+    {
+        if (m_BulletType == DamageSource.NeutralBullet)
+            m_Trail.startColor = new Color(183, 157, 42);
+        else
+            m_Trail.startColor = new Color(183, 50, 0);
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -48,6 +58,7 @@ public class Bullet : MonoBehaviour
     public void ReflectTowards(Vector3 direction, DamageSource source)
     {
         m_BulletType = source;
+
         transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
     }
 }
