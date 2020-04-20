@@ -12,6 +12,8 @@ public class FiringController : MonoBehaviour
     [SerializeField] float m_FirePeriod;
     float m_TimeSinceLastShot;
 
+    [SerializeField] AimSystem m_Aim;
+
     [SerializeField] AudioSource m_AudioSource;
     [SerializeField] AudioClip m_FireSound;
 
@@ -27,7 +29,7 @@ public class FiringController : MonoBehaviour
     void Update()
     {
         m_TimeSinceLastShot += Time.deltaTime;
-        if (m_TimeSinceLastShot >= m_FirePeriod) {
+        if (m_TimeSinceLastShot >= m_FirePeriod && m_Aim.IsAiming()) {
             Fire();
         }
     }

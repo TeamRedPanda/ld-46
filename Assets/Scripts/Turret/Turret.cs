@@ -18,5 +18,6 @@ public class Turret : MonoBehaviour
         m_FiringController.StopFiring();
         m_AimSystem.StopAiming();
         m_AudioSource.PlayOneShot(m_BreakSound);
+        Destroy(gameObject, 1f);
     }
 }

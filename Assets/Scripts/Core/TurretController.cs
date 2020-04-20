@@ -39,6 +39,7 @@ public class TurretController : MonoBehaviour
 
     public void OnTurretDestroyed()
     {
+        m_CurrentTurrets--;
         m_DestroyedTurretCount++;
         m_DestroyedTurretCountView.UpdateCount(m_DestroyedTurretCount);
     }

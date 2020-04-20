@@ -566,7 +566,8 @@ MonoBehaviour:
     type: 3}
   m_Target: {fileID: 0}
   m_SpawnPoint: {fileID: 403859261078068772}
-  m_FirePeriod: 2
+  m_FirePeriod: 3
+  m_Aim: {fileID: 7231360689348212283}
   m_AudioSource: {fileID: 1549386841}
   m_FireSound: {fileID: 8300000, guid: e98c3f2ac4de18c4b9a99695073854d4, type: 3}
 --- !u!82 &1549386841

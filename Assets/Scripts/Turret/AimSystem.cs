@@ -34,6 +34,12 @@ public class AimSystem : MonoBehaviour
         m_Pivot.rotation = Quaternion.LookRotation(newDirection);
     }
 
+    public bool IsAiming()
+    {
+        Vector3 targetDirection = m_Target.position - transform.position;
+        return Mathf.Abs(Vector3.Angle(m_Pivot.forward, targetDirection)) <= 15;
+    }
+
     public void StopAiming()
     {
         m_ShouldAim = false;
