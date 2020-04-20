@@ -344,6 +344,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1036ca1d042518c438f87f9a919f2b7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_AudioSource: {fileID: 975991641}
+  m_HurtSound: {fileID: 8300000, guid: c6b34fb5193a3684d99f5357eea13a25, type: 3}
 --- !u!114 &7850425184467036538
 MonoBehaviour:
   m_ObjectHideFlags: 0
