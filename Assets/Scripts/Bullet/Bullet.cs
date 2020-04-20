@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour
         var bounceSurface = other.GetComponent<BounceSurface>();
 
         if (bounceSurface != null) {
-            m_Bounces -= (m_BulletType == DamageSource.PlayerBullet) ? 3 : 1;
+            m_Bounces -= 1;
 
             if (m_Bounces <= 0)
                 Destroy(gameObject);

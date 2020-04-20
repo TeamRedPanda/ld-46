@@ -12,7 +12,7 @@ public class BounceSurface : MonoBehaviour
         var normal = transform.right;
         var bullet = other.GetComponent<Bullet>();
         if (bullet != null) {
-            bullet.Reflect(normal.normalized, DamageSource.NeutralBullet);
+            bullet.Reflect(normal.normalized, bullet.m_BulletType);
             m_AudioSource.PlayOneShot(m_AudioClip);
         }
     }
