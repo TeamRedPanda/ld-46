@@ -5,18 +5,23 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] BulletMovement m_Movement;
+
+    DamageSource m_BulletType = DamageSource.NeutralBullet;
+
     void OnTriggerEnter(Collider other)
     {
         var damageable = other.GetComponent<IDamageable>();
 
         if (damageable != null) {
-            damageable.Damage(DamageSource.NeutralBullet);
+            damageable.Damage(m_BulletType);
             Destroy(gameObject);
         }
     }
 
     public void Reflect(Vector3 normal)
     {
+        m_BulletType = DamageSource.PlayerBullet;
+
         var currentDirection = transform.forward;
         var newDirection = currentDirection - 2 * Vector3.Dot(normal, currentDirection) * normal;
 

@@ -9,9 +9,14 @@ public class AimSystem : MonoBehaviour
 
     public float m_AngularSpeed;
 
+    bool m_ShouldAim = true;
+
     // Update is called once per frame
     void Update()
     {
+        if (m_ShouldAim == false)
+            return;
+
         // Determine which direction to rotate towards
         Vector3 targetDirection = m_Target.position - transform.position;
         targetDirection.y = 0f;
@@ -27,5 +32,10 @@ public class AimSystem : MonoBehaviour
 
         // Calculate a rotation a step closer to the target and applies rotation to this object
         m_Pivot.rotation = Quaternion.LookRotation(newDirection);
+    }
+
+    public void StopAiming()
+    {
+        m_ShouldAim = false;
     }
 }

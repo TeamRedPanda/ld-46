@@ -12,6 +12,8 @@ public class FiringController : MonoBehaviour
     [SerializeField] float m_FirePeriod;
     float m_TimeSinceLastShot;
 
+    bool m_ShouldFire = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +29,16 @@ public class FiringController : MonoBehaviour
         }
     }
 
+    public void StopFiring()
+    {
+        m_ShouldFire = false;
+    }
+
     private void Fire()
     {
+        if (m_ShouldFire == false)
+            return;
+
         m_TimeSinceLastShot = 0f;
         Instantiate(m_BulletPrefab, m_SpawnPoint.position, m_SpawnPoint.rotation);
     }
