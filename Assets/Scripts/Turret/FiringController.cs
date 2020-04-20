@@ -17,12 +17,15 @@ public class FiringController : MonoBehaviour
     [SerializeField] AudioSource m_AudioSource;
     [SerializeField] AudioClip m_FireSound;
 
+    GameController m_GameController;
+
     bool m_ShouldFire = true;
 
     // Start is called before the first frame update
     void Start()
     {
         m_TimeSinceLastShot = m_FirePeriod;
+        m_GameController = FindObjectOfType<GameController>();
     }
 
     // Update is called once per frame
@@ -42,6 +45,9 @@ public class FiringController : MonoBehaviour
     private void Fire()
     {
         if (m_ShouldFire == false)
+            return;
+
+        if (m_GameController.IsGameOver == true)
             return;
 
         m_TimeSinceLastShot = 0f;

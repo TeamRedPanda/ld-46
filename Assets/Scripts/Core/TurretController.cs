@@ -22,6 +22,8 @@ public class TurretController : MonoBehaviour
     [SerializeField] AudioClip m_SpawmSound;
     [SerializeField] AudioSource m_AudioSource;
 
+    [SerializeField] GameController m_GameController;
+
     void Start()
     {
         for (int i = 0; i < m_SpawnAtStart; i++) {
@@ -46,6 +48,9 @@ public class TurretController : MonoBehaviour
 
     private void SpawmRandomTurret()
     {
+        if (m_GameController.IsGameOver == true)
+            return;
+
         m_CurrentTurrets++;
         var position = RandomPointInBounds(m_SpawmArea.bounds);
         position.y = 0f;

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ public class PlayerInput : MonoBehaviour
     Transform m_CameraPosition;
     Camera m_MainCamera;
 
+    bool m_Enabled = true;
+
     void Awake()
     {
         m_PlayerMovement = GetComponent<PlayerMovement>();
@@ -19,9 +22,17 @@ public class PlayerInput : MonoBehaviour
         m_CameraPosition = m_MainCamera.transform;
     }
 
+    internal void StopInput()
+    {
+        m_Enabled = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (m_Enabled == false)
+            return;
+
         ProcessMovementInput();
         ProcessLookDirection();
 

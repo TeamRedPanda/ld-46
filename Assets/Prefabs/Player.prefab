@@ -347,6 +347,7 @@ MonoBehaviour:
   m_AudioSource: {fileID: 975991641}
   m_HurtSound: {fileID: 8300000, guid: c6b34fb5193a3684d99f5357eea13a25, type: 3}
   m_StrikeCountView: {fileID: 0}
+  m_Input: {fileID: 808741568}
 --- !u!114 &7850425184467036538
 MonoBehaviour:
   m_ObjectHideFlags: 0
