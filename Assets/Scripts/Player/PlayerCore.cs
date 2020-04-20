@@ -6,6 +6,7 @@ public class PlayerCore : MonoBehaviour
 {
     [SerializeField] AudioSource m_AudioSource;
     [SerializeField] AudioClip m_HurtSound;
+    [SerializeField] CountView m_StrikeCountView;
 
     private int m_StrikeCount = 0;
 
@@ -13,5 +14,6 @@ public class PlayerCore : MonoBehaviour
     {
         m_AudioSource.PlayOneShot(m_HurtSound);
         m_StrikeCount++;
+        m_StrikeCountView.UpdateCount(m_StrikeCount);
     }
 }
