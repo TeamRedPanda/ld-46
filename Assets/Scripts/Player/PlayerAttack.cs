@@ -6,10 +6,19 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] Animator m_Animator;
     [SerializeField] Collider m_HitCollider;
+    [SerializeField] AudioClip m_SwingAudio;
+    [SerializeField] AudioClip m_HitAudio;
+    [SerializeField] AudioSource m_AudioSource;
+
+    private bool m_CanSwing = true;
 
     public void Attack()
     {
-        m_Animator.SetTrigger("Swing");
+        if (m_CanSwing == true) {
+            m_AudioSource.PlayOneShot(m_SwingAudio);
+            m_Animator.SetTrigger("Swing");
+            m_CanSwing = false;
+        }
     }
 
     public void Hit()
@@ -29,11 +38,12 @@ public class PlayerAttack : MonoBehaviour
 
     private void ReflectBullet(Bullet bullet)
     {
+        m_AudioSource.PlayOneShot(m_HitAudio);
         bullet.ReflectTowards(transform.forward, DamageSource.PlayerBullet);
     }
 
     public void BackswingFinished()
     {
-
+        m_CanSwing = true;
     }
 }
