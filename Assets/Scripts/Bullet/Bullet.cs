@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] BulletMovement m_Movement;
-
     DamageSource m_BulletType = DamageSource.NeutralBullet;
 
     void OnTriggerEnter(Collider other)
@@ -18,14 +16,13 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public void Reflect(Vector3 normal)
+    public void Reflect(Vector3 normal, DamageSource source)
     {
-        m_BulletType = DamageSource.PlayerBullet;
+        m_BulletType = source;
 
         var currentDirection = transform.forward;
         var newDirection = currentDirection - 2 * Vector3.Dot(normal, currentDirection) * normal;
 
         transform.rotation = Quaternion.LookRotation(newDirection, Vector3.up);
-        m_Movement.Speed *= 1.4f;
     }
 }

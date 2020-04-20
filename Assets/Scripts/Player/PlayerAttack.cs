@@ -32,7 +32,7 @@ public class PlayerAttack : MonoBehaviour
         var normal = bullet.transform.position - transform.position;
         normal.y = 0f;
 
-        bullet.Reflect(normal);
+        bullet.Reflect(normal, DamageSource.PlayerBullet);
     }
 
     public void BackswingFinished()
