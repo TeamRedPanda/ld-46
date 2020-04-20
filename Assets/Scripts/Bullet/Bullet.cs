@@ -44,4 +44,10 @@ public class Bullet : MonoBehaviour
 
         transform.rotation = Quaternion.LookRotation(newDirection, Vector3.up);
     }
+
+    public void ReflectTowards(Vector3 direction, DamageSource source)
+    {
+        m_BulletType = source;
+        transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+    }
 }
