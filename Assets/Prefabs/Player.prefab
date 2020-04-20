@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5870408728243866533}
   - component: {fileID: 2431500148718605847}
   - component: {fileID: 7518494485714111379}
-  - component: {fileID: 8430523273622182667}
   m_Layer: 0
   m_Name: Hurt collider
   m_TagString: Untagged
@@ -60,19 +59,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Core: {fileID: 2968841233465520213}
---- !u!114 &8430523273622182667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1813283032816389190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d128f08de055fc469bf43c57c237348, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Core: {fileID: 0}
 --- !u!1 &4115806181894744938
 GameObject:
   m_ObjectHideFlags: 0
